@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 
@@ -14,6 +15,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('categories', CategoryController::class);
+Route::resource('authors', AuthorController::class);
 Route::resource('users', UserController::class)->except(['create', 'store', 'destroy']);
 
 // Rotas para criação de livros
