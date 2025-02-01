@@ -25,6 +25,7 @@ class BookController extends Controller
 
     public function storeWithId(Request $request)
     {
+        $this->authorize('create', Book::class);
         $request->validate([
             'title' => 'required|string|max:255',
             'publisher_id' => 'required|exists:publishers,id',
@@ -58,6 +59,7 @@ class BookController extends Controller
 
     public function storeWithSelect(Request $request)
     {
+        $this->authorize('create', Book::class);
         $request->validate([
             'title' => 'required|string|max:255',
             'publisher_id' => 'required|exists:publishers,id',
